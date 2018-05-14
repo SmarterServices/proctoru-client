@@ -1,6 +1,6 @@
 {
   "config": {
-    "url": "https://demo.proctoru.com/api",
+    "host": "https://demo.proctoru.com/api",
     "authorizationToken": "123456456456456"
   },
   "getTimeZoneList": {
@@ -31,6 +31,12 @@
             "DST": false
           }
         ]
+      },
+      "timeOutError": {
+        "time_sent": "2018-05-14T06:00:55.043Z",
+        "response_code": 2,
+        "message": "stale request",
+        "data": null
       }
     }
   }
