@@ -1,5 +1,6 @@
 {
   "getTimeZoneList": {
-    "endpoint": "/getTimeZoneList/"
+    "endpoint": "/getTimeZoneList/",
+    "method": "GET"
   }
 }
