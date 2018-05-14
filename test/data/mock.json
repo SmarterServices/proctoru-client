@@ -1,0 +1,37 @@
+{
+  "config": {
+    "url": "https://demo.proctoru.com/api",
+    "authorizationToken": "123456456456456"
+  },
+  "getTimeZoneList": {
+    "response": {
+      "valid": {
+        "time_sent": "2018-05-14T10:19:08Z",
+        "response_code": 1,
+        "message": "",
+        "data": [
+          {
+            "TimeZoneNo": 42,
+            "GMTOffset": -12,
+            "Id": "Dateline Standard Time",
+            "DisplayName": "(UTC-12:00) International Date Line West",
+            "Description": "Dateline Standard Time",
+            "SortOrder": 100,
+            "LocalTime": "10:19 PM",
+            "DST": false
+          },
+          {
+            "TimeZoneNo": 43,
+            "GMTOffset": -11,
+            "Id": "UTC-11",
+            "DisplayName": "(UTC-11:00) Coordinated Universal Time-11",
+            "Description": "UTC-11",
+            "SortOrder": 100,
+            "LocalTime": "11:19 PM",
+            "DST": false
+          }
+        ]
+      }
+    }
+  }
+}
