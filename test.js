@@ -4,7 +4,7 @@ const Client = require('./index');
 
 const client = new Client({
   host: 'https://demo.proctoru.com/api',
-  authorizationToken: 'd9c4e406-e7ca-4a4e-a44f-79167deb30b7'
+  authorizationToken: '30846d01-41be-4183-be85-4665f955afe1'
 });
 
 client
