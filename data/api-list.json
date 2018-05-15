@@ -6,5 +6,9 @@
   "getStudentReservationList": {
     "endpoint": "/getStudentReservationList/",
     "method": "GET"
+  },
+  "beginReservation": {
+    "endpoint": "/beginReservation/",
+    "method": "POST"
   }
 }

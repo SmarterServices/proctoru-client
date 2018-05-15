@@ -9,7 +9,11 @@ const client = new Client({
 
 client
   // .getTimeZoneList()
-  .getStudentReservationList({studentId: 269})
+  // .getStudentReservationList({studentId: 269})
+  .beginReservation({
+    studentId: 269,
+    reservationId: 932
+  })
   .then(response => {
     console.log(response);
   })
