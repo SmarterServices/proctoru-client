@@ -8,10 +8,11 @@ const client = new Client({
 });
 
 client
-  .getTimeZoneList()
+  // .getTimeZoneList()
+  .getStudentReservationList({studentId: 269})
   .then(response => {
     console.log(response);
   })
   .catch(err => {
-    console.error(err.message);
+    console.error(err);
   });

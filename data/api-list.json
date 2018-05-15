@@ -2,5 +2,9 @@
   "getTimeZoneList": {
     "endpoint": "/getTimeZoneList/",
     "method": "GET"
+  },
+  "getStudentReservationList": {
+    "endpoint": "/getStudentReservationList/",
+    "method": "GET"
   }
 }
