@@ -14,8 +14,9 @@ describe('Client', function testClient() {
     nock.disableNetConnect();
   });
 
-  before('Mock', function () {
+  after('Mock', function () {
     nock.enableNetConnect();
+    proctorUMock.reset();
   });
 
   it('Should create new client', function testCreateNewClient() {
@@ -26,7 +27,7 @@ describe('Client', function testClient() {
   describe('Get TimeZone List', function testClient() {
 
     before('Create Mocker', function () {
-      proctorUMock.getTimeZoneList();
+      proctorUMock.getEndpointMocker('getTimeZoneList');
     });
 
     it('Should list timeZone', () => {
@@ -37,10 +38,10 @@ describe('Client', function testClient() {
         });
     });
 
-    it('Should fail for invalid credential', () => {
+    it('Should fail for invalid timeSent', () => {
 
       proctorUMock.removeInterceptor();
-      proctorUMock.getTimeZoneList('timeOutError');
+      proctorUMock.getEndpointMocker('getTimeZoneList', 'timeOutError');
 
       return client
         .getTimeZoneList()

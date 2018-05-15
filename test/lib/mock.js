@@ -8,17 +8,19 @@ const ProctorUMocker = {
   activeMocks: [],
 
   /**
-   * Mocker for getTimeZone List
-   * @param shouldFail
+   * Mock get endpoint by methodName
+   * @param {String} methodName
+   * @param {String} [responseType]
    * @returns {*}
    */
-  getTimeZoneList: function (responseType = 'valid') {
+  getEndpointMocker: function (methodName, responseType = 'valid') {
+
     let scope = nock(PROCTORU_HOST)
       .persist()
-      .get(apiList.getTimeZoneList.endpoint)
+      .get(apiList[methodName].endpoint)
       .query(true)
       .reply(function () {
-          return [200, proctorUData.getTimeZoneList.response[responseType]];
+        return [200, proctorUData[methodName].response[responseType]];
       });
     this.activeMocks.push(scope);
     return scope;
