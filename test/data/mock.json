@@ -76,5 +76,74 @@
         "data": null
       }
     }
+  },
+  "addAdHocProcess": {
+    "params": {
+      "studentId": 269,
+      "lastName": "Skywalker",
+      "firstName": "Luke",
+      "address1": "5858 Lucas Valley Rd",
+      "city": "Nicasio",
+      "state": "CA",
+      "country": "US",
+      "zipcode": 94946,
+      "phone1": 926763264,
+      "email": "lucas_skywalker@starwars.com",
+      "takeitnow": "N",
+      "timeZoneId": "Tonga Standard Time",
+      "description": "Lightsaber Swordsmanship",
+      "duration": 60,
+      "startDate": "2018-08-16T11:00:00Z",
+      "reservationId": 9321
+    },
+    "response": {
+      "valid": {
+        "time_sent": "2018-05-16T10:06:48Z",
+        "response_code": 1,
+        "message": "",
+        "data": {
+          "balance": 0.0,
+          "reservation_id": "932",
+          "reservation_no": 907886515,
+          "url": "https://demo.proctoru.com/students/reservations?login_token=BAhpBHpSJjc%3D--d05662171c844793a57244e9c4a6d9eb2837d2b3&reservation_no=907886515&return_to=https%3A%2F%2Fdemo.proctoru.com%2Fstudents%2Freservations"
+        }
+      },
+      "timeOutError": {
+        "time_sent": "2018-05-14T06:00:55.043Z",
+        "response_code": 2,
+        "message": "stale request",
+        "data": null
+      },
+      "studentNotFoundError": {
+        "time_sent": "2018-05-15T08:17:24.364Z",
+        "response_code": 2,
+        "message": "Student Not found : Error count 0 of 50",
+        "data": null
+      },
+      "reservationIdExistError": {
+        "time_sent": "2018-05-16T10:21:13.781Z",
+        "response_code": 2,
+        "message": "reservation_id_EXIST_FOR_THIS_INSTITUTION : Error count 0 of 50 : Error count 0 of 50",
+        "data": null
+      },
+      "overlapError": {
+        "time_sent": "2018-05-16T10:21:36.910Z",
+        "response_code": 2,
+        "message": "OVERLAP : Error count 1 of 50 : Error count 1 of 50",
+        "data": null
+      },
+      "timeZoneNotFoundError": {
+        "time_sent": "2018-05-16T09:55:00Z",
+        "response_code": 2,
+        "message": "TimeZone not found. : Error count 2 of 50",
+        "data": null
+      },
+      "startDateInPastError": {
+        "time_sent": "2018-05-16T07:55:04.858Z",
+        "response_code": 2,
+        "message": "start_date in the past : Error count 0 of 50",
+        "data": null
+      }
+    }
   }
 }
