@@ -10,5 +10,9 @@
   "beginReservation": {
     "endpoint": "/beginReservation/",
     "method": "POST"
+  },
+  "getScheduleInfoAvailableTimesList": {
+    "endpoint": "/getScheduleInfoAvailableTimesList/",
+    "method": "GET"
   }
 }
