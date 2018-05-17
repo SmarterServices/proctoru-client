@@ -8,20 +8,38 @@ const client = new Client({
 });
 
 client
-  // .getTimeZoneList()
+  //.getTimeZoneList()
   // .getStudentReservationList({studentId: 269})
   // .beginReservation({
   //   studentId: 269,
   //   reservationId: 932
   // })
-  .getScheduleInfoAvailableTimesList({
+  //  .getScheduleInfoAvailableTimesList({
+  //   studentId: 269,
+  //  timeZoneId: 42,
+  //  examId: 940,
+  //  isadhoc: 'Y',
+  //  startDate: '2018-08-29T00:00:00Z',
+  //  takeitnow: 'N',
+  //  duration: 60
+  //})
+  .addAdHocProcess({
     studentId: 269,
-    timeZoneId: 42,
-    examId: 940,
-    isadhoc: 'Y',
-    startDate: '2018-08-29T00:00:00Z',
+    lastName: 'Skywalker',
+    firstName: 'Luke',
+    address1: '5858 Lucas Valley Rd',
+    city: 'Nicasio',
+    state: 'CA',
+    country: 'US',
+    zipcode: 94946,
+    phone1: 926763264,
+    email: 'lucas_skywalker@starwars.com',
     takeitnow: 'N',
-    duration: 60
+    timeZoneId: 'Tonga Standard Time',
+    description: 'Lightsaber Swordsmanship',
+    duration: 60,
+    startDate: '2018-08-16T11:00:00Z',
+    reservationId: 9321
   })
   .then(response => {
     console.log(response);

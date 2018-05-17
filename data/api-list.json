@@ -11,6 +11,10 @@
     "endpoint": "/beginReservation/",
     "method": "POST"
   },
+  "addAdHocProcess": {
+    "endpoint": "/addAdHocProcess/",
+    "method": "POST"
+  },
   "getScheduleInfoAvailableTimesList": {
     "endpoint": "/getScheduleInfoAvailableTimesList/",
     "method": "GET"
