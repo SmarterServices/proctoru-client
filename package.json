@@ -21,6 +21,7 @@
   "dependencies": {
     "joi": "^11.1.1",
     "lodash": "^4.17.4",
+    "npm": "^6.0.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },

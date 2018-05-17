@@ -14,5 +14,9 @@
   "addAdHocProcess": {
     "endpoint": "/addAdHocProcess/",
     "method": "POST"
+  },
+  "getScheduleInfoAvailableTimesList": {
+    "endpoint": "/getScheduleInfoAvailableTimesList/",
+    "method": "GET"
   }
 }
