@@ -97,6 +97,7 @@ const schema = {
       duration: joi
         .number()
         .integer()
+        .positive()
         .required()
         .description('Total time allowed for the exam in minutes'),
       notes: joi
@@ -184,6 +185,7 @@ const schema = {
       duration: joi
         .number()
         .integer()
+        .positive()
         .required()
         .description('Length of the exam in minutes'),
 

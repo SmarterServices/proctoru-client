@@ -83,16 +83,6 @@ describe('Client', function testClient() {
         });
     });
 
-    it('Should fail for missing [studentId]', () => {
-
-      return client
-        .getStudentReservationList({})
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"studentId" is required');
-        });
-    });
-
     it('Should fail for invalid [studentId]', () => {
 
       const errorType = 'studentNotFoundError';
@@ -139,32 +129,6 @@ describe('Client', function testClient() {
         });
     });
 
-    it('Should fail for missing [studentId]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.studentId;
-
-      return client
-        .beginReservation({})
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"studentId" is required');
-        });
-    });
-
-    it('Should fail for missing [reservationId]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.reservationId;
-
-      return client
-        .beginReservation({})
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"studentId" is required');
-        });
-    });
-
     it('Should fail for invalid [studentId]', () => {
 
       const errorType = 'studentNotFoundError';
@@ -196,6 +160,23 @@ describe('Client', function testClient() {
           expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
         });
     });
+
+    it('Should fail for invalid [reservationNo]', () => {
+
+      const errorType = 'reservationNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('beginReservation', errorType);
+
+      return client
+        .beginReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.beginReservation.response[errorType].response_code);
+          expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
+        });
+    });
+
   });
 
   describe('Get Schedule Info Available Times List', function testClient() {
@@ -225,84 +206,6 @@ describe('Client', function testClient() {
         .catch((error)=>{
           expect(error.response_code).to.eql(mockData.getScheduleInfoAvailableTimesList.response.timeOutError.response_code);
           expect(error.message).to.eql(mockData.getScheduleInfoAvailableTimesList.response.timeOutError.message);
-        });
-    });
-
-    it('Should fail for missing [studentId]', () => {
-
-      const customPayload = Object.assign({},payload);
-      delete customPayload.studentId;
-
-      return client
-        .getScheduleInfoAvailableTimesList(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"studentId" is required');
-        });
-    });
-
-    it('Should fail for missing [timeZoneId]', () => {
-
-      const customPayload = Object.assign({},payload);
-      delete customPayload.timeZoneId;
-
-      return client
-        .getScheduleInfoAvailableTimesList(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"timeZoneId" is required');
-        });
-    });
-
-    it('Should fail for missing [examId]', () => {
-
-      const customPayload = Object.assign({},payload);
-      delete customPayload.examId;
-
-      return client
-        .getScheduleInfoAvailableTimesList(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"examId" is required');
-        });
-    });
-
-    it('Should fail for missing [startDate]', () => {
-
-      const customPayload = Object.assign({},payload);
-      delete customPayload.startDate;
-
-      return client
-        .getScheduleInfoAvailableTimesList(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"startDate" is required');
-        });
-    });
-
-    it('Should fail for missing [takeitnow]', () => {
-
-      const customPayload = Object.assign({},payload);
-      delete customPayload.takeitnow;
-
-      return client
-        .getScheduleInfoAvailableTimesList(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"takeitnow" is required');
-        });
-    });
-
-    it('Should fail for missing [duration]', () => {
-
-      const customPayload = Object.assign({},payload);
-      delete customPayload.duration;
-
-      return client
-        .getScheduleInfoAvailableTimesList(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"duration" is required');
         });
     });
 
@@ -366,202 +269,6 @@ describe('Client', function testClient() {
         .catch((error)=>{
           expect(error.response_code).to.eql(mockData.addAdHocProcess.response.timeOutError.response_code);
           expect(error.message).to.eql(mockData.addAdHocProcess.response.timeOutError.message);
-        });
-    });
-
-    it('Should fail for missing [studentId]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.studentId;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"studentId" is required');
-        });
-    });
-
-    it('Should fail for missing [lastName]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.lastName;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"lastName" is required');
-        });
-    });
-
-    it('Should fail for missing [firstName]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.firstName;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"firstName" is required');
-        });
-    });
-
-    it('Should fail for missing [address1]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.address1;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"address1" is required');
-        });
-    });
-
-    it('Should fail for missing [city]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.city;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"city" is required');
-        });
-    });
-
-    it('Should fail for missing [state]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.state;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"state" is required');
-        });
-    });
-
-    it('Should fail for missing [country]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.country;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"country" is required');
-        });
-    });
-
-    it('Should fail for missing [zipcode]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.zipcode;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"zipcode" is required');
-        });
-    });
-
-    it('Should fail for missing [phone1]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.phone1;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"phone1" is required');
-        });
-    });
-
-    it('Should fail for missing [email]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.email;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"email" is required');
-        });
-    });
-
-    it('Should fail for missing [timeZoneId]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.timeZoneId;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"timeZoneId" is required');
-        });
-    });
-
-
-    it('Should fail for missing [description]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.description;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"description" is required');
-        });
-    });
-
-    it('Should fail for missing [duration]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.duration;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"duration" is required');
-        });
-    });
-
-    it('Should fail for missing [startDate]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.startDate;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"startDate" is required');
-        });
-    });
-
-    it('Should fail for missing [reservationId]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.reservationId;
-
-      return client
-        .addAdHocProcess(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"reservationId" is required');
         });
     });
 
@@ -677,32 +384,6 @@ describe('Client', function testClient() {
         });
     });
 
-    it('Should fail for missing [studentId]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.studentId;
-
-      return client
-        .removeReservation(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"studentId" is required');
-        });
-    });
-
-    it('Should fail for missing [reservationNo]', () => {
-
-      const customPayload = Object.assign({}, payload);
-      delete customPayload.reservationNo;
-
-      return client
-        .removeReservation(customPayload)
-        .then(Promise.reject)
-        .catch((error)=>{
-          expect(error).to.eql('"reservationNo" is required');
-        });
-    });
-
     it('Should fail for invalid [studentId]', () => {
 
       const errorType = 'studentNotFoundError';
@@ -722,6 +403,22 @@ describe('Client', function testClient() {
     it('Should fail for invalid [reservationNo]', () => {
 
       const errorType = 'reservationNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('removeReservation', errorType);
+
+      return client
+        .removeReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.removeReservation.response[errorType].response_code);
+          expect(error.message).to.eql(mockData.removeReservation.response[errorType].message);
+        });
+    });
+
+    it('Should fail for invalid [reservationNo]', () => {
+
+      const errorType = 'reservationCancelledError';
 
       proctorUMock.removeInterceptor();
       proctorUMock.postEndpointMocker('removeReservation', errorType);
