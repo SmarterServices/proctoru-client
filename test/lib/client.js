@@ -647,4 +647,94 @@ describe('Client', function testClient() {
 
   });
 
+  describe('Remove Reservation', function testClient() {
+
+    before('Create Mocker', function () {
+      proctorUMock.postEndpointMocker('removeReservation');
+    });
+
+    const payload = mockData.removeReservation.params;
+
+    it('Remove reservation', () => {
+      return client
+        .removeReservation(payload)
+        .then((response)=>{
+          expect(response).to.eql(mockData.removeReservation.response.valid);
+        });
+    });
+
+    it('Should fail for invalid [timeSent]', () => {
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('removeReservation', 'timeOutError');
+
+      return client
+        .removeReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.removeReservation.response.timeOutError.response_code);
+          expect(error.message).to.eql(mockData.removeReservation.response.timeOutError.message);
+        });
+    });
+
+    it('Should fail for missing [studentId]', () => {
+
+      const customPayload = Object.assign({}, payload);
+      delete customPayload.studentId;
+
+      return client
+        .removeReservation(customPayload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql('"studentId" is required');
+        });
+    });
+
+    it('Should fail for missing [reservationNo]', () => {
+
+      const customPayload = Object.assign({}, payload);
+      delete customPayload.reservationNo;
+
+      return client
+        .removeReservation(customPayload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql('"reservationNo" is required');
+        });
+    });
+
+    it('Should fail for invalid [studentId]', () => {
+
+      const errorType = 'studentNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('removeReservation', errorType);
+
+      return client
+        .removeReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.removeReservation.response[errorType].response_code);
+          expect(error.message).to.eql(mockData.removeReservation.response[errorType].message);
+        });
+    });
+
+    it('Should fail for invalid [reservationNo]', () => {
+
+      const errorType = 'reservationNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('removeReservation', errorType);
+
+      return client
+        .removeReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.removeReservation.response[errorType].response_code);
+          expect(error.message).to.eql(mockData.removeReservation.response[errorType].message);
+        });
+    });
+
+  });
+
 });
