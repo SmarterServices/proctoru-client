@@ -170,6 +170,12 @@
         "response_code": 2,
         "message": "Reservation is in the future : Error count 0 of 50",
         "data": null
+      },
+      "reservationNotFoundError": {
+        "time_sent": "2018-05-17T10:37:47.492Z",
+        "response_code": 2,
+        "message": "Reservation Not found : Error count 0 of 50",
+        "data": null
       }
     }
   },
@@ -274,7 +280,12 @@
         "response_code": 2,
         "message": "Reservation Not found : Error count 0 of 50",
         "data": null
-      }
+      },
+      "reservationCancelledError": {
+        "time_sent": "2018-05-16T12:59:00.075Z",
+        "response_code": 2,
+        "message": "Reservation Cancelled. : Error count 0 of 50",
+        "data": null }
     }
   }
 }
