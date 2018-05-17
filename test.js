@@ -14,6 +14,15 @@ client
   //   studentId: 269,
   //   reservationId: 932
   // })
+  //  .getScheduleInfoAvailableTimesList({
+  //   studentId: 269,
+  //  timeZoneId: 42,
+  //  examId: 940,
+  //  isadhoc: 'Y',
+  //  startDate: '2018-08-29T00:00:00Z',
+  //  takeitnow: 'N',
+  //  duration: 60
+  //})
   .addAdHocProcess({
     studentId: 269,
     lastName: 'Skywalker',
