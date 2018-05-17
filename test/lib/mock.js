@@ -26,6 +26,18 @@ const ProctorUMocker = {
     return scope;
   },
 
+  postEndpointMocker: function (methodName, responseType = 'valid') {
+
+    let scope = nock(PROCTORU_HOST)
+      .persist()
+      .post(apiList[methodName].endpoint)
+      .reply(function () {
+        return [200, proctorUData[methodName].response[responseType]];
+      });
+    this.activeMocks.push(scope);
+    return scope;
+  },
+
   reset: nock.cleanAll,
 
   /**

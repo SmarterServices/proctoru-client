@@ -128,5 +128,49 @@
         "data": null
       }
     }
+  },
+  "beginReservation": {
+    "params": {
+      "studentId": 269,
+      "reservationId": 932
+    },
+    "response": {
+      "valid": {
+        "time_sent": "2018-05-15T07:23:49Z",
+        "response_code": 1,
+        "message": "",
+        "data": [
+          {
+            "reservation_no": 907886102,
+            "reservation_id": "932",
+            "exam_id": null,
+            "description": "Lightsaber Swordsmanship",
+            "courseno": null,
+            "instructor": null,
+            "start_date": "2018-05-28T14:00:00Z",
+            "test": "Lightsaber Swordsmanship",
+            "escalated": false
+          }
+        ]
+      },
+      "timeOutError": {
+        "time_sent": "2018-05-14T06:00:55.043Z",
+        "response_code": 2,
+        "message": "stale request",
+        "data": null
+      },
+      "studentNotFoundError": {
+        "time_sent": "2018-05-15T08:17:24.364Z",
+        "response_code": 2,
+        "message": "Student Not found : Error count 0 of 50",
+        "data": null
+      },
+      "reservationInFutureError": {
+        "time_sent": "2018-05-16T05:48:41.132Z",
+        "response_code": 2,
+        "message": "Reservation is in the future : Error count 0 of 50",
+        "data": null
+      }
+    }
   }
 }

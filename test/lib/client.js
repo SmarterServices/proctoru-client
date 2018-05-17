@@ -109,6 +109,94 @@ describe('Client', function testClient() {
         });
     });
   });
+  describe('Begin Reservation', function testClient() {
+
+    before('Create Mocker', function () {
+      proctorUMock.postEndpointMocker('beginReservation');
+    });
+
+    const payload = mockData.beginReservation.params;
+
+    it('Begin reservation', () => {
+      return client
+        .beginReservation(payload)
+        .then((response)=>{
+          expect(response).to.eql(mockData.beginReservation.response.valid);
+        });
+    });
+
+    it('Should fail for invalid [timeSent]', () => {
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('beginReservation', 'timeOutError');
+
+      return client
+        .beginReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.beginReservation.response.timeOutError.response_code);
+          expect(error.message).to.eql(mockData.beginReservation.response.timeOutError.message);
+        });
+    });
+
+    it('Should fail for missing [studentId]', () => {
+
+      const customPayload = Object.assign({}, payload);
+      delete customPayload.studentId;
+
+      return client
+        .beginReservation({})
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql('"studentId" is required');
+        });
+    });
+
+    it('Should fail for missing [reservationId]', () => {
+
+      const customPayload = Object.assign({}, payload);
+      delete customPayload.reservationId;
+
+      return client
+        .beginReservation({})
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql('"studentId" is required');
+        });
+    });
+
+    it('Should fail for invalid [studentId]', () => {
+
+      const errorType = 'studentNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('beginReservation', errorType);
+
+      return client
+        .beginReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.beginReservation.response[errorType].response_code);
+          expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
+        });
+    });
+
+    it('Should fail for invalid [reservationId]', () => {
+
+      const errorType = 'reservationInFutureError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('beginReservation', errorType);
+
+      return client
+        .beginReservation(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.response_code).to.eql(mockData.beginReservation.response[errorType].response_code);
+          expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
+        });
+    });
+  });
 
   describe('Get Schedule Info Available Times List', function testClient() {
 
