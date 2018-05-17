@@ -189,7 +189,25 @@ const schema = {
 
     })
     .required()
-    .description('get schedule info available times list schema')
+    .description('get schedule info available times list schema'),
+  removeReservation: joi
+    .object({
+      studentId: joi
+        .number()
+        .integer()
+        .required()
+        .description('Institution\'s unique test-taker ID'),
+      reservationNo: joi
+        .number()
+        .integer()
+        .required()
+        .description('ProctorU\'s unique reservation ID'),
+      explanation: joi
+        .string()
+        .description('explanation')
+    })
+    .required()
+    .description('remove reservation payload')
 };
 
 module.exports = schema;

@@ -18,5 +18,9 @@
   "getScheduleInfoAvailableTimesList": {
     "endpoint": "/getScheduleInfoAvailableTimesList/",
     "method": "GET"
+  },
+  "removeReservation": {
+    "endpoint": "/removeReservation",
+    "method": "POST"
   }
 }
