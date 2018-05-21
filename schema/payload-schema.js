@@ -209,7 +209,38 @@ const schema = {
         .description('explanation')
     })
     .required()
-    .description('remove reservation payload')
+    .description('remove reservation payload'),
+  moveReservation: joi
+    .object({
+      reservationNo: joi
+        .number()
+        .integer()
+        .required()
+        .description('ProctorU unique reservation ID'),
+      startDate: joi
+        .string()
+        .isoDate()
+        .regex(/.*Z/, 'ISO time format in utc zone')
+        .example(utils.dateTemplate(), 'date template')
+        .required()
+        .description('Date the reservation will be available'),
+      reservationId: joi
+        .number()
+        .integer()
+        .required()
+        .description('Institution\'s unique reservation ID'),
+      urlReturn: joi
+        .string()
+        .uri()
+        .description('URL to redirect the test-taker to after scheduling'),
+      notify: joi
+        .string()
+        .default('Y')
+        .allow('Y','N')
+        .description('notify')
+    })
+    .required()
+    .description('move reservation payload')
 };
 
 module.exports = schema;

@@ -47,8 +47,7 @@ describe('Client', function testClient() {
         .getTimeZoneList()
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.getTimeZoneList.response.timeOutError.response_code);
-          expect(error.message).to.eql(mockData.getTimeZoneList.response.timeOutError.message);
+          expect(error).to.eql(mockData.getTimeZoneList.response.timeOutError);
         });
     });
   });
@@ -78,8 +77,7 @@ describe('Client', function testClient() {
         .getStudentReservationList(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.getStudentReservationList.response.timeOutError.response_code);
-          expect(error.message).to.eql(mockData.getStudentReservationList.response.timeOutError.message);
+          expect(error).to.eql(mockData.getStudentReservationList.response.timeOutError);
         });
     });
 
@@ -94,11 +92,11 @@ describe('Client', function testClient() {
         .getStudentReservationList(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.getStudentReservationList.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.getStudentReservationList.response[errorType].message);
+          expect(error).to.eql(mockData.getStudentReservationList.response[errorType]);
         });
     });
   });
+
   describe('Begin Reservation', function testClient() {
 
     before('Create Mocker', function () {
@@ -124,8 +122,7 @@ describe('Client', function testClient() {
         .beginReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.beginReservation.response.timeOutError.response_code);
-          expect(error.message).to.eql(mockData.beginReservation.response.timeOutError.message);
+          expect(error).to.eql(mockData.beginReservation.response.timeOutError);
         });
     });
 
@@ -140,8 +137,7 @@ describe('Client', function testClient() {
         .beginReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.beginReservation.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
+          expect(error).to.eql(mockData.beginReservation.response[errorType]);
         });
     });
 
@@ -156,8 +152,7 @@ describe('Client', function testClient() {
         .beginReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.beginReservation.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
+          expect(error).to.eql(mockData.beginReservation.response[errorType]);
         });
     });
 
@@ -172,8 +167,7 @@ describe('Client', function testClient() {
         .beginReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.beginReservation.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.beginReservation.response[errorType].message);
+          expect(error).to.eql(mockData.beginReservation.response[errorType]);
         });
     });
 
@@ -204,8 +198,7 @@ describe('Client', function testClient() {
         .getScheduleInfoAvailableTimesList(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.getScheduleInfoAvailableTimesList.response.timeOutError.response_code);
-          expect(error.message).to.eql(mockData.getScheduleInfoAvailableTimesList.response.timeOutError.message);
+          expect(error).to.eql(mockData.getScheduleInfoAvailableTimesList.response.timeOutError);
         });
     });
 
@@ -220,8 +213,7 @@ describe('Client', function testClient() {
         .getScheduleInfoAvailableTimesList(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.getScheduleInfoAvailableTimesList.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.getScheduleInfoAvailableTimesList.response[errorType].message);
+          expect(error).to.eql(mockData.getScheduleInfoAvailableTimesList.response[errorType]);
         });
     });
 
@@ -236,8 +228,7 @@ describe('Client', function testClient() {
         .getScheduleInfoAvailableTimesList(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.getScheduleInfoAvailableTimesList.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.getScheduleInfoAvailableTimesList.response[errorType].message);
+          expect(error).to.eql(mockData.getScheduleInfoAvailableTimesList.response[errorType]);
         });
     });
   });
@@ -267,8 +258,7 @@ describe('Client', function testClient() {
         .addAdHocProcess(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.addAdHocProcess.response.timeOutError.response_code);
-          expect(error.message).to.eql(mockData.addAdHocProcess.response.timeOutError.message);
+          expect(error).to.eql(mockData.addAdHocProcess.response.timeOutError);
         });
     });
 
@@ -283,8 +273,7 @@ describe('Client', function testClient() {
         .addAdHocProcess(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.addAdHocProcess.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.addAdHocProcess.response[errorType].message);
+          expect(error).to.eql(mockData.addAdHocProcess.response[errorType]);
         });
     });
 
@@ -299,8 +288,7 @@ describe('Client', function testClient() {
         .addAdHocProcess(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.addAdHocProcess.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.addAdHocProcess.response[errorType].message);
+          expect(error).to.eql(mockData.addAdHocProcess.response[errorType]);
         });
     });
 
@@ -315,8 +303,7 @@ describe('Client', function testClient() {
         .addAdHocProcess(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.addAdHocProcess.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.addAdHocProcess.response[errorType].message);
+          expect(error).to.eql(mockData.addAdHocProcess.response[errorType]);
         });
     });
 
@@ -331,8 +318,7 @@ describe('Client', function testClient() {
         .addAdHocProcess(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.addAdHocProcess.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.addAdHocProcess.response[errorType].message);
+          expect(error).to.eql(mockData.addAdHocProcess.response[errorType]);
         });
     });
 
@@ -347,8 +333,7 @@ describe('Client', function testClient() {
         .addAdHocProcess(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.addAdHocProcess.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.addAdHocProcess.response[errorType].message);
+          expect(error).to.eql(mockData.addAdHocProcess.response[errorType]);
         });
     });
 
@@ -379,8 +364,7 @@ describe('Client', function testClient() {
         .removeReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.removeReservation.response.timeOutError.response_code);
-          expect(error.message).to.eql(mockData.removeReservation.response.timeOutError.message);
+          expect(error).to.eql(mockData.removeReservation.response.timeOutError);
         });
     });
 
@@ -395,8 +379,7 @@ describe('Client', function testClient() {
         .removeReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.removeReservation.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.removeReservation.response[errorType].message);
+          expect(error).to.eql(mockData.removeReservation.response[errorType]);
         });
     });
 
@@ -411,8 +394,7 @@ describe('Client', function testClient() {
         .removeReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.removeReservation.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.removeReservation.response[errorType].message);
+          expect(error).to.eql(mockData.removeReservation.response[errorType]);
         });
     });
 
@@ -427,8 +409,68 @@ describe('Client', function testClient() {
         .removeReservation(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.response_code).to.eql(mockData.removeReservation.response[errorType].response_code);
-          expect(error.message).to.eql(mockData.removeReservation.response[errorType].message);
+          expect(error).to.eql(mockData.removeReservation.response[errorType]);
+        });
+    });
+
+  });
+
+  describe('Move Reservation', function testClient() {
+
+    before('Create Mocker', function () {
+      proctorUMock.postEndpointMocker('moveReservation');
+    });
+
+    const payload = mockData.moveReservation.params;
+
+    it('Move reservation successfully', () => {
+      return client
+        .moveReservation(payload, {})
+        .then((response)=>{
+          expect(response).to.eql(mockData.moveReservation.response.valid);
+        });
+    });
+
+    it('Should fail for invalid [timeSent]', () => {
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('moveReservation', 'timeOutError');
+
+      return client
+        .moveReservation(payload, {})
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.moveReservation.response.timeOutError);
+        });
+    });
+
+    it('Should fail for already deleted reservation', () => {
+
+      const errorType = 'reservationCancelledError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('moveReservation', errorType);
+
+      return client
+        .moveReservation(payload, {})
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.moveReservation.response[errorType]);
+        });
+    });
+
+    it('Should fail for invalid [reservationId]', () => {
+
+      const errorType = 'reservationNotForInstitutionError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('moveReservation', errorType);
+
+      return client
+        .moveReservation(payload, {})
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.moveReservation.response[errorType]);
         });
     });
 
