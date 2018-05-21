@@ -287,5 +287,44 @@
         "message": "Reservation Cancelled. : Error count 0 of 50",
         "data": null }
     }
+  },
+  "moveReservation": {
+    "params": {
+      "reservationNo": 907886102,
+      "startDate": "2019-08-29T00:00:00Z",
+      "reservationId": 932
+    },
+    "response": {
+      "valid": {
+        "time_sent": "2018-05-16T13:00:44Z",
+        "response_code": 1,
+        "message": "",
+        "data":
+        {
+          "balance": 30,
+          "reservation_id": "932",
+          "reservation_no": 907886517,
+          "url": "https://demo.proctoru.com/students/order?login_token=BAhpBHpSJjc%3D--d05662171c844793a57244e9c4a6d9eb2837d2b3&reservation_no=OTA3ODg2NTE3%0A"
+        }
+      },
+      "timeOutError": {
+        "time_sent": "2018-05-14T06:00:55.043Z",
+        "response_code": 2,
+        "message": "stale request",
+        "data": null
+      },
+      "reservationCancelledError": {
+        "time_sent": "2018-05-16T12:59:00.075Z",
+        "response_code": 2,
+        "message": "Reservation Cancelled. : Error count 0 of 50",
+        "data": null
+      },
+      "reservationNotForInstitutionError": {
+        "time_sent": "2018-05-16T10:21:36.910Z",
+        "response_code": 2,
+        "message": "RESERVATION_NOT_FOR_THIS_INSTITUTION : Error count 1 of 50 : Error count 1 of 50",
+        "data": null
+      }
+    }
   }
 }
