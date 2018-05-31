@@ -9,15 +9,15 @@ const client = new Client({
 
 client
   // .getTimeZoneList()
-  // .getStudentReservationList({studentId: 269})
+  // .getStudentReservationList({studentId: '269'})
   // .beginReservation({
-  //   studentId: 269,
-  //   reservationId: 932
+  //   studentId: '269',
+  //   reservationId: '9322'
   // })
   //  .getScheduleInfoAvailableTimesList({
-  //   studentId: 269,
-  //  timeZoneId: 42,
-  //  examId: 940,
+  //   studentId: '269',
+  //  timeZoneId: '42',
+  //  examId: '940',
   //  isadhoc: 'Y',
   //  startDate: '2018-08-29T00:00:00Z',
   //  takeitnow: 'N',
@@ -25,7 +25,7 @@ client
   // })
   // .addAdHocProcess(
   //   {
-  //     studentId: 269,
+  //     studentId: '269',
   //     lastName: 'Skywalker',
   //     firstName: 'Luke',
   //     address1: '5858 Lucas Valley Rd',
@@ -39,13 +39,13 @@ client
   //     timeZoneId: 'Tonga Standard Time',
   //     description: 'Lightsaber Swordsmanship',
   //     duration: 60,
-  //     startDate: '2018-06-16T11:00:00Z',
-  //     reservationId: 1341
+  //     startDate: '2019-02-16T11:00:00Z',
+  //     reservationId: '1011'
   //   }
   // )
   // .removeReservation({
-  //   studentId: 269,
-  //   reservationNo: 907886657
+  //   studentId: '269',
+  //   reservationNo: 907886907
   // })
   // .moveReservation({
   //   reservationNo: 907886639,
