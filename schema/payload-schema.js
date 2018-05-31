@@ -5,25 +5,22 @@ const utils = require('./../lib/helpers/utils');
 
 const schema = {
   getStudentReservationList: joi
-  .object({
-    studentId: joi
-      .number()
-      .integer()
-      .required()
-      .description('Institution\'s unique test-taker ID')
-  })
+    .object({
+      studentId: joi
+        .string()
+        .required()
+        .description('Institution\'s unique test-taker ID')
+    })
     .required()
     .description('Get student reservation list schema'),
   beginReservation: joi
     .object({
       studentId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique test-taker ID'),
       reservationId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique reservation ID'),
       reservationNo: joi
@@ -36,8 +33,7 @@ const schema = {
   addAdHocProcess: joi
     .object({
       studentId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique test-taker ID'),
       lastName: joi
@@ -111,8 +107,7 @@ const schema = {
         .required()
         .description('Date the reservation will be available'),
       reservationId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique reservation ID'),
       reservationNo: joi
@@ -148,13 +143,11 @@ const schema = {
   getScheduleInfoAvailableTimesList: joi
     .object({
       studentId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique test-taker ID'),
       timeZoneId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Time Zone ID - please call getTimeZoneList for a list of IDs'),
       isadhoc: joi
@@ -162,8 +155,7 @@ const schema = {
         .allow('Y','N')
         .description('Specifies whether the request is for an addAdHoc request'),
       examId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique exam ID. Pass this back in order to update the exam.'),
       startDate: joi
@@ -195,8 +187,7 @@ const schema = {
   removeReservation: joi
     .object({
       studentId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique test-taker ID'),
       reservationNo: joi
@@ -225,8 +216,7 @@ const schema = {
         .required()
         .description('Date the reservation will be available'),
       reservationId: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Institution\'s unique reservation ID'),
       urlReturn: joi
