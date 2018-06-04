@@ -42,7 +42,7 @@
   },
   "getStudentReservationList": {
     "params": {
-      "studentId": 269
+      "studentId": "269"
     },
     "response": {
       "valid": {
@@ -79,9 +79,9 @@
   },
   "getScheduleInfoAvailableTimesList": {
     "params": {
-      "studentId": 269,
-      "timeZoneId": 42,
-      "examId": 940,
+      "studentId": "269",
+      "timeZoneId": "42",
+      "examId": "940",
       "isadhoc": "Y",
       "startDate": "2018-08-29T00:00:00Z",
       "takeitnow": "N",
@@ -131,8 +131,8 @@
   },
   "beginReservation": {
     "params": {
-      "studentId": 269,
-      "reservationId": 932
+      "studentId": "269",
+      "reservationId": "932"
     },
     "response": {
       "valid": {
@@ -181,7 +181,7 @@
   },
   "addAdHocProcess": {
     "params": {
-      "studentId": 269,
+      "studentId": "269",
       "lastName": "Skywalker",
       "firstName": "Luke",
       "address1": "5858 Lucas Valley Rd",
@@ -196,7 +196,7 @@
       "description": "Lightsaber Swordsmanship",
       "duration": 60,
       "startDate": "2018-08-16T11:00:00Z",
-      "reservationId": 9321
+      "reservationId": "9321"
     },
     "response": {
       "valid": {
@@ -250,7 +250,7 @@
   },
   "removeReservation": {
     "params": {
-      "studentId": 269,
+      "studentId": "269",
       "reservationNo": 907886102
     },
     "response": {
@@ -292,7 +292,7 @@
     "params": {
       "reservationNo": 907886102,
       "startDate": "2019-08-29T00:00:00Z",
-      "reservationId": 932
+      "reservationId": "932"
     },
     "response": {
       "valid": {
