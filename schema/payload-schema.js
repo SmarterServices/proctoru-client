@@ -4,6 +4,19 @@ const joi = require('joi');
 const utils = require('./../lib/helpers/utils');
 
 const schema = {
+  credential: joi
+    .object({
+      host: joi
+        .string()
+        .required()
+        .description('Host url'),
+      authorizationToken: joi
+        .string()
+        .required()
+        .description('Access Token')
+    })
+    .required()
+    .description('credential schema'),
   getStudentReservationList: joi
     .object({
       studentId: joi
@@ -120,7 +133,7 @@ const schema = {
       takeitnow: joi
         .string()
         .default('Y')
-        .allow('Y','N')
+        .allow('Y', 'N')
         .description('Whether to notify the test-taker of this scheduling by e-mail. Defaults to true if omitted.'),
       urlReturn: joi
         .string()
@@ -128,7 +141,7 @@ const schema = {
         .description('URL to redirect the test-taker to after scheduling'),
       notify: joi
         .string()
-        .allow('Y','N')
+        .allow('Y', 'N')
         .description('notify'),
       examUrl: joi
         .string()
@@ -152,7 +165,7 @@ const schema = {
         .description('Time Zone ID - please call getTimeZoneList for a list of IDs'),
       isadhoc: joi
         .string()
-        .allow('Y','N')
+        .allow('Y', 'N')
         .description('Specifies whether the request is for an addAdHoc request'),
       examId: joi
         .string()
@@ -167,7 +180,7 @@ const schema = {
         .description('Date for the times that you would like to see'),
       takeitnow: joi
         .string()
-        .allow('Y','N')
+        .allow('Y', 'N')
         .required()
         .description('Date for the times that you would like to see'),
       reservationNo: joi
@@ -226,7 +239,7 @@ const schema = {
       notify: joi
         .string()
         .default('Y')
-        .allow('Y','N')
+        .allow('Y', 'N')
         .description('notify')
     })
     .required()
