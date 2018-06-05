@@ -1,8 +1,9 @@
 'use strict';
 
 const nock = require('nock');
+const camelize = require('camelize');
 const Client = require('./../../index');
-const mockData = require('./../data/mock.json');
+let mockData = require('./../data/mock.json');
 const expect = require('chai').expect;
 const proctorUMock = require('./mock');
 
@@ -12,6 +13,7 @@ describe('Client', function testClient() {
 
   before('Mock', function () {
     nock.disableNetConnect();
+    mockData = camelize(mockData);
   });
 
   after('Mock', function () {
@@ -20,7 +22,7 @@ describe('Client', function testClient() {
   });
 
   it('Should create new client', function testCreateNewClient() {
-    client = new Client(config);
+    client = new Client();
     expect(client).instanceof(Client);
   });
 
@@ -32,7 +34,7 @@ describe('Client', function testClient() {
 
     it('Should list timeZone', () => {
       return client
-        .getTimeZoneList()
+        .getTimeZoneList(config)
         .then((response)=>{
           expect(response).to.eql(mockData.getTimeZoneList.response.valid);
         });
@@ -40,11 +42,11 @@ describe('Client', function testClient() {
 
     it('Should fail for invalid [timeSent]', () => {
 
-      proctorUMock.removeInterceptor();
+      proctorUMock.removeInterceptor(config);
       proctorUMock.getEndpointMocker('getTimeZoneList', 'timeOutError');
 
       return client
-        .getTimeZoneList()
+        .getTimeZoneList(config)
         .then(Promise.reject)
         .catch((error)=>{
           expect(error).to.eql(mockData.getTimeZoneList.response.timeOutError);
@@ -58,7 +60,7 @@ describe('Client', function testClient() {
       proctorUMock.getEndpointMocker('getStudentReservationList');
     });
 
-    const payload = mockData.getStudentReservationList.params;
+    const payload = Object.assign(mockData.getStudentReservationList.params, config);
 
     it('Should list studentReservation', () => {
       return client
@@ -103,7 +105,7 @@ describe('Client', function testClient() {
       proctorUMock.postEndpointMocker('beginReservation');
     });
 
-    const payload = mockData.beginReservation.params;
+    const payload = Object.assign(mockData.beginReservation.params, config);
 
     it('Begin reservation', () => {
       return client
@@ -179,7 +181,7 @@ describe('Client', function testClient() {
       proctorUMock.getEndpointMocker('getScheduleInfoAvailableTimesList');
     });
 
-    const payload = mockData.getScheduleInfoAvailableTimesList.params;
+    const payload = Object.assign(mockData.getScheduleInfoAvailableTimesList.params, config);
 
     it('Should list schedule info available times list', () => {
       return client
@@ -239,7 +241,7 @@ describe('Client', function testClient() {
       proctorUMock.postEndpointMocker('addAdHocProcess');
     });
 
-    const payload = mockData.addAdHocProcess.params;
+    const payload = Object.assign(mockData.addAdHocProcess.params, config);
 
     it('Begin reservation', () => {
       return client
@@ -345,7 +347,7 @@ describe('Client', function testClient() {
       proctorUMock.postEndpointMocker('removeReservation');
     });
 
-    const payload = mockData.removeReservation.params;
+    const payload = Object.assign(mockData.removeReservation.params, config);
 
     it('Remove reservation', () => {
       return client
@@ -421,7 +423,7 @@ describe('Client', function testClient() {
       proctorUMock.postEndpointMocker('moveReservation');
     });
 
-    const payload = mockData.moveReservation.params;
+    const payload = Object.assign(mockData.moveReservation.params, config);
 
     it('Move reservation successfully', () => {
       return client
