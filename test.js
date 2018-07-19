@@ -44,15 +44,24 @@ client
 //       reservationId: '1011'
 //     }, credential)
 //   )
-  .removeReservation(Object.assign({
-    studentId: '270',
-    reservationNo: 907887045
-  }, credential))
+//   .removeReservation(Object.assign({
+//     studentId: '270',
+//     reservationNo: 907887045
+//   }, credential))
   // .moveReservation(Object.assign({
   //   reservationNo: 907887045,
   //   startDate: '2019-08-29T00:00:00Z',
   //   reservationId: '1011'
   // },credential))
+  .autoLogin(Object.assign({
+    studentId: '269',
+    email: 'lucas_skywalker@starwars.com',
+    firstName: 'Luke',
+    lastName: 'Skywalker',
+    timeZoneId: 'Central Standard Time',
+    urlReturn: 'http://www.starwars.com',
+    update: 1
+  }, credential))
   .then(response => {
     console.log(response);
   })
