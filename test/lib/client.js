@@ -478,4 +478,50 @@ describe('Client', function testClient() {
 
   });
 
+  describe('Auto Login', function testClient() {
+
+    before('Create Mocker', function () {
+      proctorUMock.postEndpointMocker('autoLogin');
+    });
+
+    const payload = Object.assign(mockData.autoLogin.params, config);
+
+    it('Returns Auto login url successfully', () => {
+      return client
+        .autoLogin(payload)
+        .then((response)=>{
+          expect(response).to.eql(mockData.autoLogin.response.valid);
+        });
+    });
+
+    it('Should fail for invalid [timeSent]', () => {
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('autoLogin', 'timeOutError');
+
+      return client
+        .autoLogin(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.autoLogin.response.timeOutError);
+        });
+    });
+
+    it('Should fail for invalid [studentId]', () => {
+
+      const errorType = 'studentNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('autoLogin', errorType);
+
+      return client
+        .autoLogin(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.autoLogin.response[errorType]);
+        });
+    });
+
+  });
+
 });

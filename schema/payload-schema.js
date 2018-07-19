@@ -243,7 +243,43 @@ const schema = {
         .description('notify')
     })
     .required()
-    .description('move reservation payload')
+    .description('move reservation payload'),
+  autoLogin: joi
+    .object({
+      studentId: joi
+        .string()
+        .required()
+        .description('Institution\'s unique test-taker ID'),
+      email: joi
+        .string()
+        .email()
+        .required()
+        .description('Test-taker\'s Email'),
+      firstName: joi
+        .string()
+        .required()
+        .description('Test-taker\'s first name'),
+      lastName: joi
+        .string()
+        .required()
+        .description('Test-taker\'s last name'),
+      timeZoneId: joi
+        .string()
+        .required()
+        .description('Time Zone ID - please call getTimeZoneList for a list of IDs'),
+      urlReturn: joi
+        .string()
+        .uri()
+        .description('URL to redirect the test-taker to after scheduling'),
+      update: joi
+        .number()
+        .min(0)
+        .max(1)
+        .description('Update the test taker\'s record with supplied values'),
+
+    })
+    .required()
+    .description('begin Reservation payload'),
 };
 
 module.exports = schema;

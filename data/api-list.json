@@ -26,5 +26,9 @@
   "moveReservation": {
     "endpoint": "/moveReservation/",
     "method": "POST"
+  },
+  "autoLogin": {
+    "endpoint": "/autoLogin/",
+    "method": "POST"
   }
 }
