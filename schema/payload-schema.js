@@ -111,6 +111,7 @@ const schema = {
         .description('Total time allowed for the exam in minutes'),
       notes: joi
         .string()
+        .allow(null, '')
         .description('Notes that only the proctors / ProctorU can view'),
       startDate: joi
         .string()
