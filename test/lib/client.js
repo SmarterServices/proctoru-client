@@ -524,4 +524,37 @@ describe('Client', function testClient() {
 
   });
 
+  describe('Get OAuth Token', function testClient() {
+
+    before('Create Mocker', function () {
+      proctorUMock.postEndpointMocker('getOAuthToken');
+    });
+
+    const payload = Object.assign({}, config);
+
+    it('Returns OAuth Token successfully', () => {
+      return client
+        .getOAuthToken(payload)
+        .then((response)=>{
+          expect(response).to.eql(mockData.getOAuthToken.response.valid);
+        });
+    });
+
+    it('Should fail for invalid requets', () => {
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('getOAuthToken', 'timeOutError');
+
+      return client
+        .getOAuthToken(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error.time_sent).to.eql(mockData.getOAuthToken.response.timeOutError.timeSent);
+          expect(error.response_code).to.eql(mockData.getOAuthToken.response.timeOutError.responseCode);
+          expect(error.message).to.eql(mockData.getOAuthToken.response.timeOutError.message);
+        });
+    });
+
+  });
+
 });
