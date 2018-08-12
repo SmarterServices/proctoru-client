@@ -540,7 +540,7 @@ describe('Client', function testClient() {
         });
     });
 
-    it('Should fail for invalid requets', () => {
+    it('Should fail for invalid requests', () => {
 
       proctorUMock.removeInterceptor();
       proctorUMock.postEndpointMocker('getOAuthToken', 'timeOutError');
@@ -549,9 +549,7 @@ describe('Client', function testClient() {
         .getOAuthToken(payload)
         .then(Promise.reject)
         .catch((error)=>{
-          expect(error.time_sent).to.eql(mockData.getOAuthToken.response.timeOutError.timeSent);
-          expect(error.response_code).to.eql(mockData.getOAuthToken.response.timeOutError.responseCode);
-          expect(error.message).to.eql(mockData.getOAuthToken.response.timeOutError.message);
+          expect(error).to.eql(mockData.getOAuthToken.response.timeOutError);
         });
     });
 
