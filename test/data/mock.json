@@ -357,5 +357,21 @@
         "data": null
       }
     }
+  },
+  "getOAuthToken": {
+    "response": {
+      "valid": {
+        "time_sent": "2018-07-18T13:07:45Z",
+        "response_code": 1,
+        "message": "",
+        "oauth_token": "5678"
+      },
+      "timeOutError": {
+        "time_sent": "2018-05-14T06:00:55.043Z",
+        "response_code": 2,
+        "message": "stale request",
+        "data": null
+      }
+    }
   }
 }

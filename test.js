@@ -53,15 +53,16 @@ client
   //   startDate: '2019-08-29T00:00:00Z',
   //   reservationId: '1011'
   // },credential))
-  .autoLogin(Object.assign({
-    studentId: '269',
-    email: 'lucas_skywalker@starwars.com',
-    firstName: 'Luke',
-    lastName: 'Skywalker',
-    timeZoneId: 'Central Standard Time',
-    urlReturn: 'http://www.starwars.com',
-    update: 1
-  }, credential))
+  // .autoLogin(Object.assign({
+  //   studentId: '269',
+  //   email: 'lucas_skywalker@starwars.com',
+  //   firstName: 'Luke',
+  //   lastName: 'Skywalker',
+  //   timeZoneId: 'Central Standard Time',
+  //   urlReturn: 'http://www.starwars.com',
+  //   update: 1
+  // }, credential))
+  .getOAuthToken(credential)
   .then(response => {
     console.log(response);
   })
