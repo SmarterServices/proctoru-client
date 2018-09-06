@@ -31,6 +31,10 @@
     "endpoint": "/autoLogin/",
     "method": "POST"
   },
+  "clientActivityReport": {
+    "endpoint": "/clientActivityReport",
+    "method": "POST"
+  },
   "getOAuthToken": {
     "endpoint": "/smarter_services/oauth_token",
     "method": "POST"

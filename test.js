@@ -1,9 +1,9 @@
 'use strict';
-
+const _ = require('lodash');
 const Client = require('./index');
 const credential = {
   host: 'https://demo.proctoru.com/api',
-  authorizationToken: '30846d01-41be-4183-be85-4665f955afe1'
+  authorizationToken: ''
 };
 const client = new Client();
 
@@ -62,7 +62,9 @@ client
   //   urlReturn: 'http://www.starwars.com',
   //   update: 1
   // }, credential))
-  .getOAuthToken(credential)
+  //.getOAuthToken(credential)
+  .getReservationDetails(Object.assign({}, credential, {studentId: 'US114232bdc7dd43fd9eedd57548f17c59' }), 8010833)
+  //.getpendingExamReportByStudent(Object.assign({}, credential, {studentId: 'US114232bdc7dd43fd9eedd57548f17c59'}))
   .then(response => {
     console.log(response);
   })

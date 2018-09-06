@@ -245,6 +245,24 @@ const schema = {
     })
     .required()
     .description('move reservation payload'),
+  clientActivityReport: joi
+      .object({
+        studentId: joi
+          .string()
+          .required()
+          .description('Institution\'s unique test-taker ID')
+      })
+      .required()
+      .description('begin Reservation payload'),
+  getAppointmentDetails: joi
+      .object({
+        studentId: joi
+          .string()
+          .required()
+          .description('Institution\'s unique test-taker ID')
+      })
+      .required()
+      .description('begin Reservation payload'),
   autoLogin: joi
     .object({
       studentId: joi
