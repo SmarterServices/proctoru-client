@@ -1,0 +1,36 @@
+{
+  "name": "proctoru-client",
+  "version": "0.0.4",
+  "description": "Library for proctorU",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=text-summary mocha test/lib",
+    "posttest": "nyc report --reporter=lcov",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmarterServices/proctoru-client.git"
+  },
+  "author": "Muntasir Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmarterServices/proctoru-client/issues"
+  },
+  "homepage": "https://github.com/SmarterServices/proctoru-client#readme",
+  "dependencies": {
+    "camelize": "^1.0.0",
+    "joi": "^11.1.1",
+    "lodash": "^4.17.4",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.7.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "mocha": "^3.5.3",
+    "nock": "^9.1.6",
+    "nyc": "^11.2.1"
+  }
+}

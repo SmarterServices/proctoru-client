@@ -1,0 +1,42 @@
+{
+  "getTimeZoneList": {
+    "endpoint": "/getTimeZoneList/",
+    "method": "GET"
+  },
+  "getStudentReservationList": {
+    "endpoint": "/getStudentReservationList/",
+    "method": "GET"
+  },
+  "beginReservation": {
+    "endpoint": "/beginReservation/",
+    "method": "POST"
+  },
+  "addAdHocProcess": {
+    "endpoint": "/addAdHocProcess/",
+    "method": "POST"
+  },
+  "getScheduleInfoAvailableTimesList": {
+    "endpoint": "/getScheduleInfoAvailableTimesList/",
+    "method": "GET"
+  },
+  "removeReservation": {
+    "endpoint": "/removeReservation",
+    "method": "POST"
+  },
+  "moveReservation": {
+    "endpoint": "/moveReservation/",
+    "method": "POST"
+  },
+  "autoLogin": {
+    "endpoint": "/autoLogin/",
+    "method": "POST"
+  },
+  "clientActivityReport": {
+    "endpoint": "/clientActivityReport",
+    "method": "POST"
+  },
+  "getOAuthToken": {
+    "endpoint": "/smarter_services/oauth_token",
+    "method": "POST"
+  }
+}
