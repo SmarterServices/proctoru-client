@@ -158,7 +158,6 @@ const schema = {
     .object({
       studentId: joi
         .string()
-        .required()
         .description('Institution\'s unique test-taker ID'),
       timeZoneId: joi
         .string()
@@ -170,7 +169,6 @@ const schema = {
         .description('Specifies whether the request is for an addAdHoc request'),
       examId: joi
         .string()
-        .required()
         .description('Institution\'s unique exam ID. Pass this back in order to update the exam.'),
       startDate: joi
         .string()
