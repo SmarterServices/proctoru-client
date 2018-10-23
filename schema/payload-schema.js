@@ -150,7 +150,30 @@ const schema = {
         .description('URL where the exam is located'),
       examPassword: joi
         .string()
-        .description('Password for the exam')
+        .description('Password for the exam'),
+      instructors: joi
+        .array()
+        .items(joi
+          .object({
+            firstName: joi
+              .string()
+              .required()
+              .description('Instructor\'s first name'),
+            lastName: joi
+              .string()
+              .required()
+              .description('Instructor\'s last name'),
+            email: joi
+              .string()
+              .email()
+              .required()
+              .description('Email of the instructor')
+          })
+          .required()
+          .description('Instructor information')
+        )
+        .required()
+        .description('List of instructor')
     })
     .required()
     .description('add adhoc process payload'),

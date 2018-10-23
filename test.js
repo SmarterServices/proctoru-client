@@ -24,26 +24,33 @@ client
 //     takeitnow: 'N',
 //     duration: 60
 //   }, credential))
-//   .addAdHocProcess(
-//     Object.assign({
-//       studentId: '270',
-//       lastName: 'Skywalker',
-//       firstName: 'Luke',
-//       address1: '5858 Lucas Valley Rd',
-//       city: 'Nicasio',
-//       state: 'CA',
-//       country: 'US',
-//       zipcode: 94946,
-//       phone1: 926763264,
-//       email: 'lucas_skywalker@starwars.com',
-//       takeitnow: 'N',
-//       timeZoneId: 'Tonga Standard Time',
-//       description: 'Lightsaber Swordsmanship',
-//       duration: 60,
-//       startDate: '2019-02-16T11:00:00Z',
-//       reservationId: '1011'
-//     }, credential)
-//   )
+  .addAdHocProcess(
+    Object.assign({
+      studentId: '270',
+      lastName: 'Skywalker',
+      firstName: 'Luke',
+      address1: '5858 Lucas Valley Rd',
+      city: 'Nicasio',
+      state: 'CA',
+      country: 'US',
+      zipcode: 94946,
+      phone1: 926763264,
+      email: 'lucas_skywalker@starwars.com',
+      takeitnow: 'N',
+      timeZoneId: 'Tonga Standard Time',
+      description: 'Lightsaber Swordsmanship',
+      duration: 60,
+      startDate: '2019-02-19T11:00:00Z',
+      reservationId: '15',
+      instructors: [
+        {
+          firstName: 'Instructor',
+          lastName: 'Name',
+          email: 'email@email.com'
+        }
+      ]
+    }, credential)
+  )
 //   .removeReservation(Object.assign({
 //     studentId: '270',
 //     reservationNo: 907887045
