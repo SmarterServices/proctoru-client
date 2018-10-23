@@ -373,5 +373,43 @@
         "data": null
       }
     }
+  },
+  "editInstitutionalUser": {
+    "params": {
+      "userPassword": "password",
+      "firstName": "Luke",
+      "lastName": "Skywalker",
+      "address1": "5858 Lucas Valley Rd",
+      "city": "Nicasio",
+      "state": "CA",
+      "country": "US",
+      "zipcode": "94946",
+      "phone1": "926763264",
+      "email": "lucas_skywalker@starwars.com",
+      "timeZoneId": "{time_zone_id}",
+      "role": "administrator"
+    },
+    "response": {
+      "valid": {
+        "time_sent": "2018-10-23T09:09:55Z",
+        "response_code": 1,
+        "message": "",
+        "data": {
+          "userinstitution": "School of API"
+        }
+      },
+      "timeOutError": {
+        "time_sent": "2018-05-14T06:00:55.043Z",
+        "response_code": 2,
+        "message": "stale request",
+        "data": null
+      },
+      "timeZoneNotFoundError": {
+        "time_sent": "2018-10-23T09:00:47.073Z",
+        "response_code": 2,
+        "message": "TimeZone not found. : Error count 1 of 50",
+        "data": null
+      }
+    }
   }
 }
