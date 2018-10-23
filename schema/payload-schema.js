@@ -267,23 +267,23 @@ const schema = {
     .required()
     .description('move reservation payload'),
   clientActivityReport: joi
-      .object({
-        studentId: joi
-          .string()
-          .required()
-          .description('Institution\'s unique test-taker ID')
-      })
-      .required()
-      .description('begin Reservation payload'),
+    .object({
+      studentId: joi
+        .string()
+        .required()
+        .description('Institution\'s unique test-taker ID')
+    })
+    .required()
+    .description('begin Reservation payload'),
   getAppointmentDetails: joi
-      .object({
-        studentId: joi
-          .string()
-          .required()
-          .description('Institution\'s unique test-taker ID')
-      })
-      .required()
-      .description('begin Reservation payload'),
+    .object({
+      studentId: joi
+        .string()
+        .required()
+        .description('Institution\'s unique test-taker ID')
+    })
+    .required()
+    .description('begin Reservation payload'),
   autoLogin: joi
     .object({
       studentId: joi
@@ -320,6 +320,59 @@ const schema = {
     })
     .required()
     .description('begin Reservation payload'),
+  editInstitutionalUser: joi
+    .object({
+      userPassword: joi
+        .string()
+        .description('Institutional-user\'s unique password'),
+      lastName: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s last name'),
+      firstName: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s first name'),
+      address1: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s Address 1 '),
+      city: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s City *required if US only'),
+      state: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s State *required if US only'),
+      country: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s Country'),
+      zipcode: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s zip or postal code'),
+      phone1: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s Primary Telephone Number'),
+      email: joi
+        .string()
+        .required()
+        .description('Institutional-user\'s Email'),
+      timeZoneId: joi
+        .string()
+        .required()
+        .description('Time Zone ID of Institutional user'),
+      role: joi
+        .string()
+        .required()
+        .valid('administrator', 'instructor')
+        .description('The role of the institutional user')
+    })
+    .required()
+    .description('Edit institutional user payload')
 };
 
 module.exports = schema;

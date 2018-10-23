@@ -72,6 +72,20 @@ client
   //.getOAuthToken(credential)
   // .getReservationDetails(Object.assign({}, credential, {studentId: 'US114232bdc7dd43fd9eedd57548f17c59' }), 8010833)
   //.getpendingExamReportByStudent(Object.assign({}, credential, {studentId: 'US114232bdc7dd43fd9eedd57548f17c59'}))
+  .editInstitutionalUser(Object.assign({}, credential, {
+    userPassword: 'password',
+    firstName: 'Luke',
+    lastName: 'Skywalker',
+    address1: '5858 Lucas Valley Rd',
+    city: 'Nicasio',
+    state: 'CA',
+    country: 'US',
+    zipcode: '94946',
+    phone1: '926763264',
+    email: 'lucas_skywalker@starwars.com',
+    timeZoneId: 'Canada Central Standard Time',
+    role: 'administrator'
+  }))
   .then(response => {
     console.log(response);
   })

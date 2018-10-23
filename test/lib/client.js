@@ -555,4 +555,48 @@ describe('Client', function testClient() {
 
   });
 
+  describe('Edit institutional user', function testClient() {
+
+    before('Create Mocker', function () {
+      proctorUMock.postEndpointMocker('editInstitutionalUser');
+    });
+
+    const payload = Object.assign(mockData.editInstitutionalUser.params, config);
+
+    it('Edit institutional User', () => {
+      return client
+        .editInstitutionalUser(payload)
+        .then((response)=>{
+          expect(response).to.eql(mockData.editInstitutionalUser.response.valid);
+        });
+    });
+
+    it('Should fail for invalid [timeSent]', () => {
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('editInstitutionalUser', 'timeOutError');
+
+      return client
+        .editInstitutionalUser(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.editInstitutionalUser.response.timeOutError);
+        });
+    });
+
+    it('Should fail for invalid [timeZone]', () => {
+
+      const errorType = 'timeZoneNotFoundError';
+
+      proctorUMock.removeInterceptor();
+      proctorUMock.postEndpointMocker('editInstitutionalUser', errorType);
+
+      return client
+        .editInstitutionalUser(payload)
+        .then(Promise.reject)
+        .catch((error)=>{
+          expect(error).to.eql(mockData.editInstitutionalUser.response[errorType]);
+        });
+    });
+  });
 });
