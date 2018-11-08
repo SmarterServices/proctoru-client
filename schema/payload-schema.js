@@ -77,18 +77,15 @@ const schema = {
         .required()
         .description('Test-taker\'s Country'),
       zipcode: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Test-taker\'s zip or postal code'),
       phone1: joi
-        .number()
-        .integer()
+        .string()
         .required()
         .description('Test-taker\'s Primary Telephone Number'),
       phone2: joi
-        .number()
-        .integer()
+        .string()
         .description('Test-taker\'s Secondary Telephone Number'),
       email: joi
         .string()
@@ -172,10 +169,8 @@ const schema = {
           .required()
           .description('Instructor information')
         )
-        .required()
         .description('List of instructor')
     })
-    .required()
     .description('add adhoc process payload'),
   getScheduleInfoAvailableTimesList: joi
     .object({
