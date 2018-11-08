@@ -38,5 +38,9 @@
   "getOAuthToken": {
     "endpoint": "/smarter_services/oauth_token",
     "method": "POST"
+  },
+  "editInstitutionalUser": {
+    "endpoint": "/editInstitutionalUser",
+    "method": "POST"
   }
 }
