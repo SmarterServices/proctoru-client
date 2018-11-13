@@ -1,6 +1,6 @@
 {
   "name": "proctoru-client",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Library for proctorU",
   "main": "index.js",
   "scripts": {
