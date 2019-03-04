@@ -2,12 +2,12 @@
 const _ = require('lodash');
 const Client = require('./index');
 const credential = {
-  host: '',
+  host: 'https://api-proctoru-com-bmzkax.appdoctor.io/api',
   authorizationToken: ''
 };
 const client = new Client();
 
-//client
+client
 // .getTimeZoneList(credential)
 // .getStudentReservationList(Object.assign({}, credential, {studentId: '270'}))
 //   .beginReservation(Object.assign({
@@ -24,7 +24,7 @@ const client = new Client();
 //     takeitnow: 'N',
 //     duration: 60
 //   }, credential))
-
+/*
   client.addAdHocProcess(
     Object.assign({
       studentId: '270',
@@ -52,11 +52,11 @@ const client = new Client();
       ]
     }, credential)
   )
-
-//   .removeReservation(Object.assign({
-//     studentId: '270',
-//     reservationNo: 907887045
-//   }, credential))
+*/
+   .removeReservation(Object.assign({
+     studentId: 'US7d0d8085380b42de953e2af6097256af',
+     reservationNo: 9901330
+   }, credential))
   // .moveReservation(Object.assign({
   //   reservationNo: 907887045,
   //   startDate: '2019-08-29T00:00:00Z',
