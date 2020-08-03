@@ -42,5 +42,9 @@
   "editInstitutionalUser": {
     "endpoint": "/editInstitutionalUser",
     "method": "POST"
+  },
+  "getInstitutionDepartmentList": {
+    "endpoint": "/getInstitutionDepartmentList",
+    "method": "GET"
   }
 }
