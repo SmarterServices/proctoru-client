@@ -169,7 +169,10 @@ const schema = {
           .required()
           .description('Instructor information')
         )
-        .description('List of instructor')
+        .description('List of instructor'),
+      departmentId: joi
+        .string()
+        .description('Department ID')
     })
     .description('add adhoc process payload'),
   getScheduleInfoAvailableTimesList: joi
