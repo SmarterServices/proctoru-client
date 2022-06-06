@@ -173,10 +173,9 @@ const schema = {
       departmentId: joi
         .string()
         .description('Department ID'),
-        whitelistUrls: joi
-            .array()
-            .required()
-            .description('Array of urls to whitelist for exam attachments')
+      whitelistUrls: joi
+          .array()
+          .description('Array of urls to whitelist for exam attachments')
     })
     .description('add adhoc process payload'),
   getScheduleInfoAvailableTimesList: joi
